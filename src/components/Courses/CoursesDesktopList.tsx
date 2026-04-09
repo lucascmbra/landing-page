@@ -3,17 +3,17 @@ import CourseItem from "./CourseItem"
 import { EXIT_STAGGER } from "./courses.data"
 import type { Course } from "./courses.types"
 
-type CoursesDesktopTabsProps = {
+type CoursesDesktopListProps = {
   displayCategory: string
   isTransitioning: boolean
   displayedCourses: Course[]
 }
 
-export default function CoursesDesktopTabs({
+export default function CoursesDesktopList({
   displayCategory,
   isTransitioning,
   displayedCourses,
-}: CoursesDesktopTabsProps) {
+}: CoursesDesktopListProps) {
   return (
     <div className="courses-panel">
       <p
