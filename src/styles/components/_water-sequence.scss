@@ -1,12 +1,10 @@
-@use "../abstracts/mixins" as *;
-
 .water-sequence {
   position: relative;
   width: 100vw;
   min-height: 120vh;
   margin-left: calc(50% - 50vw);
   overflow: hidden;
-  @include section-padding-y;
+  padding-top: clamp(7.5rem, 8vw, 18.5rem);
 
   &__image {
     display: block;
