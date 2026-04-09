@@ -5,8 +5,8 @@ import { useEffect, useMemo, useRef, useState } from "react"
 const TOTAL_FRAMES = 192
 const LAST_FRAME = TOTAL_FRAMES - 1
 
-const DEFAULT_START_OFFSET = 100
-const DEFAULT_END_OFFSET = 350
+const DEFAULT_START_OFFSET = 0
+const DEFAULT_END_OFFSET = 500
 
 type WaterSequenceProps = {
   startOffset?: number
