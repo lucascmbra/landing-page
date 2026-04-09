@@ -1,0 +1,40 @@
+@use "../abstracts/mixins" as *;
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding-inline: 1.625rem;
+
+  @include section-padding-y;
+
+  @include up(md) {
+    max-width: 720px;
+  }
+
+  @include up(lg) {
+    max-width: 1024px;
+  }
+
+  @include up(xl) {
+    max-width: 1280px;
+    padding-inline: 3rem;
+  }
+
+  @include up(xxl) {
+    max-width: 1440px;
+    padding-inline: 4rem;
+  }
+
+  @include up(hd) {
+    max-width: 100%;
+    padding-inline: 10rem;
+  }
+
+  @include up(ultra) {
+    padding-inline: 12rem;
+  }
+
+  @include up(fullhd) {
+    padding-inline: 16rem;
+  }
+}

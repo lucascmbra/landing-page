@@ -1,0 +1,130 @@
+@use "../abstracts/variables" as *;
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("/assets/fonts/Montserrat/Montserrat-Light.ttf") format("truetype");
+  font-weight: $font-light;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("/assets/fonts/Montserrat/Montserrat-Regular.ttf") format("truetype");
+  font-weight: $font-regular;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("/assets/fonts/Montserrat/Montserrat-Italic.ttf") format("truetype");
+  font-weight: $font-regular;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("/assets/fonts/Montserrat/Montserrat-Medium.ttf") format("truetype");
+  font-weight: $font-medium;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("/assets/fonts/Montserrat/Montserrat-Black.ttf") format("truetype");
+  font-weight: $font-black;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("/assets/fonts/Roboto/Roboto-Light.ttf") format("truetype");
+  font-weight: $font-light;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("/assets/fonts/Roboto/Roboto-Regular.ttf") format("truetype");
+  font-weight: $font-regular;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --font-primary: "Montserrat", sans-serif;
+  --font-secondary: "Roboto", sans-serif;
+}
+
+html {
+  font-size: 100%;
+}
+
+body {
+  font-family: $font-secondary;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: $text-primary;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $font-primary;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+h3 {
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+}
+
+h4 {
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+}
+
+h5 {
+  font-size: 1.25rem;
+}
+
+h6 {
+  font-size: 1.125rem;
+}
+
+p {
+  margin-bottom: 1rem;
+  color: $text-secondary;
+}
+
+small {
+  font-size: 0.875rem;
+}
+
+strong {
+  font-weight: 700;
+}
+
+a {
+  color: $primary;
+  transition: 0.2s ease;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}

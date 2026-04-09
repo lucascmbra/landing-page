@@ -1,0 +1,25 @@
+@use "breakpoints" as *;
+@use "functions" as *;
+
+@mixin up($size) {
+  @media (min-width: breakpoint($size)) {
+    @content;
+  }
+}
+
+@mixin down($size) {
+  @media (max-width: breakpoint($size)) {
+    @content;
+  }
+}
+
+@mixin between($min, $max) {
+  @media (min-width: breakpoint($min)) and (max-width: breakpoint($max)) {
+    @content;
+  }
+}
+
+@mixin section-padding-y {
+  padding-top: clamp(7.5rem, 10vw, 18.5rem);
+  padding-bottom: clamp(7.5rem, 10vw, 18.5rem);
+}
