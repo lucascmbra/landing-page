@@ -104,7 +104,6 @@
   left: 0;
   width: 100%;
   z-index: 2;
-  pointer-events: none;
 
   @include up(xxl) {
     transform: translateY(-8%);
@@ -128,9 +127,9 @@
     &--bottom {
       display: flex;
       justify-content: flex-end;
-      margin-top: 0.125rem;
 
       .marquee-outline__item {
+        margin-top: 0.125rem;
         font-style: italic;
       }
     }
