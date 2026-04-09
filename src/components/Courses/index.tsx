@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useMemo, useState } from "react"
-import CoursesDesktopTabs from "./CoursesDesktopTabs"
+import CoursesDesktopList from "./CoursesDesktopList"
 import CoursesMobileAccordion from "./CoursesMobileAccordion"
 import { BASE_EXIT_DURATION, COURSES, EXIT_STAGGER } from "./courses.data"
 import type { Course } from "./courses.types"
@@ -122,7 +122,7 @@ export default function Courses() {
         </header>
 
         <div className="courses__body">
-          <CoursesDesktopTabs
+          <CoursesDesktopList
             displayCategory={displayCategory}
             isTransitioning={isTransitioning}
             displayedCourses={displayedCourses}
