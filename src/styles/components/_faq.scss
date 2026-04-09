@@ -231,6 +231,7 @@
       &::before {
         max-width: 23.43rem;
         background-color: $primary;
+        opacity: 1;
 
         @include down(lg) {
           max-width: 21.25rem;
