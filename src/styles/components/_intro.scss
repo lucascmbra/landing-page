@@ -1,0 +1,199 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.intro {
+  overflow: visible;
+
+  &__media {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    padding-top: 3rem;
+  }
+
+  &__media-frame {
+    position: relative;
+    overflow: hidden;
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    height: auto;
+    min-height: 50rem;
+  }
+
+  &__media-reveal {
+    position: absolute;
+    inset: 0;
+    background-color: $bg-primary;
+    transform: translateY(0);
+    transition: transform 1s ease;
+
+    &--visible {
+      transform: translateY(100%);
+    }
+  }
+}
+
+.marquee {
+  overflow: hidden;
+  width: 100%;
+
+  &__row {
+    overflow: hidden;
+    padding: 1.25rem 0;
+
+    @include down(md) {
+      padding: 1rem 0;
+    }
+  }
+
+  &__track {
+    display: flex;
+    gap: 4rem;
+    width: max-content;
+    border-bottom: 0.125rem solid $text-primary;
+    padding-bottom: 1.5rem;
+    will-change: transform;
+
+    @include down(md) {
+      gap: 2rem;
+    }
+  }
+
+  span {
+    flex: none;
+    font-family: $font-primary;
+    font-weight: $font-regular;
+    font-size: clamp(2.25rem, 4.25vw, 5.5rem);
+    line-height: 100%;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    white-space: nowrap;
+
+    @include down(lg) {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+    }
+
+    @include down(md) {
+      font-size: clamp(1.75rem, 7vw, 2.5rem);
+    }
+
+    @include up(ultra) {
+      font-size: clamp(3rem, 3.8vw, 6rem);
+    }
+
+    @include up(fullhd) {
+      font-size: clamp(3.5rem, 3.2vw, 6.5rem);
+    }
+  }
+
+  &__row--ltr .marquee__track {
+    animation: marquee-ltr 40s linear infinite;
+  }
+
+  &__row--rtl .marquee__track {
+    animation: marquee-rtl 40s linear infinite;
+  }
+}
+
+.marquee-outline {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+  pointer-events: none;
+
+  @include up(xxl) {
+    transform: translateY(-8%);
+  }
+
+  @include up(ultra) {
+    transform: translateY(-12%);
+  }
+
+  &__row {
+    width: 100%;
+    overflow: hidden;
+    padding: 0.375rem 0;
+
+    &--top {
+      .marquee-outline__item {
+        font-style: normal;
+      }
+    }
+
+    &--bottom {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 0.125rem;
+
+      .marquee-outline__item {
+        font-style: italic;
+      }
+    }
+  }
+
+  &__track {
+    display: flex;
+    width: max-content;
+    will-change: transform;
+    gap: 0;
+  }
+
+  &__item {
+    display: inline-block;
+    flex-shrink: 0;
+    white-space: nowrap;
+    padding-right: 2rem;
+    font-family: $font-primary;
+    font-weight: $font-medium;
+    font-size: clamp(2.75rem, 6vw, 9rem);
+    line-height: 0.92;
+    text-transform: uppercase;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 1px $text-outline;
+    paint-order: stroke;
+
+    @include down(lg) {
+      font-size: clamp(2.5rem, 7vw, 5rem);
+    }
+
+    @include down(md) {
+      padding-right: 1.25rem;
+      font-size: clamp(2rem, 8vw, 3.75rem);
+      -webkit-text-stroke: 0.05rem rgba(255, 255, 255, 0.72);
+    }
+
+    @include up(ultra) {
+      font-size: clamp(3.5rem, 5vw, 8rem);
+    }
+
+    @include up(fullhd) {
+      padding-right: 2.5rem;
+      font-size: clamp(4rem, 4.2vw, 9.5rem);
+    }
+  }
+}
+
+@keyframes marquee-ltr {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-rtl {
+  from {
+    transform: translateX(-50%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
