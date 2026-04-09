@@ -18,8 +18,14 @@ export default function CoursesMobileAccordion({
   onToggleCategory,
 }: CoursesMobileAccordionProps) {
   const itemRefs = useRef<Record<string, HTMLElement | null>>({})
+  const hasMountedRef = useRef(false)
 
   useEffect(() => {
+    if (!hasMountedRef.current) {
+      hasMountedRef.current = true
+      return
+    }
+
     if (!openedCategory) return
 
     const sectionElement = itemRefs.current[openedCategory]
