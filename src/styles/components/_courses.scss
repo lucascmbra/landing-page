@@ -1,0 +1,648 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.courses {
+  .container {
+    display: flex;
+    flex-direction: column;
+    gap: 6.5625rem;
+
+    @include up(xxl) {
+      gap: 7.25rem;
+    }
+
+    @include up(hd) {
+      gap: 8rem;
+    }
+
+    @include up(ultra) {
+      gap: 9rem;
+    }
+
+    @include up(fullhd) {
+      gap: 10rem;
+    }
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 3rem;
+
+    .section-title {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+
+      &__title {
+        font-family: $font-primary;
+        font-weight: $font-medium;
+        font-size: 5.75rem;
+        line-height: 1;
+        color: $text-primary;
+
+        @include down(lg) {
+          font-size: 3.875rem;
+        }
+      }
+
+      &__subtitle {
+        font-family: $font-primary;
+        font-weight: $font-medium;
+        font-size: 1.375rem;
+        line-height: 1;
+        color: $primary;
+      }
+    }
+
+    @include down(lg) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 2rem;
+    }
+
+    @include up(xxl) {
+      gap: 3.5rem;
+
+      .section-title {
+        gap: 1.125rem;
+
+        &__title {
+          font-size: 6.25rem;
+        }
+
+        &__subtitle {
+          font-size: 1.5rem;
+        }
+      }
+    }
+
+    @include up(hd) {
+      gap: 4rem;
+
+      .section-title {
+        gap: 1.25rem;
+
+        &__title {
+          font-size: 6.75rem;
+        }
+
+        &__subtitle {
+          font-size: 1.625rem;
+        }
+      }
+    }
+
+    @include up(ultra) {
+      gap: 4.5rem;
+
+      .section-title {
+        gap: 1.375rem;
+
+        &__title {
+          font-size: 7.5rem;
+        }
+
+        &__subtitle {
+          font-size: 1.75rem;
+        }
+      }
+    }
+
+    @include up(fullhd) {
+      gap: 5rem;
+
+      .section-title {
+        gap: 1.5rem;
+
+        &__title {
+          font-size: 8.5rem;
+        }
+
+        &__subtitle {
+          font-size: 1.9375rem;
+        }
+      }
+    }
+  }
+
+  &__body {
+    width: 100%;
+  }
+
+  &__categories {
+    @include down(lg) {
+      display: none;
+    }
+  }
+}
+
+.courses-tabs {
+  display: flex;
+  align-items: center;
+  gap: 6.25rem;
+
+  &__item {
+    list-style: none;
+  }
+
+  &__button {
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    color: $text-secondary;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: $text-primary;
+    }
+
+    &::before {
+      content: "";
+      display: block;
+      width: 2.4375rem;
+      height: 0.375rem;
+      background-color: $primary;
+      transform: scaleX(0);
+      transform-origin: left center;
+      transition: transform 0.45s ease;
+    }
+
+    &--active {
+      color: $text-primary;
+
+      &::before {
+        transform: scaleX(1);
+        transform-origin: left center;
+      }
+    }
+
+    &--previous {
+      &::before {
+        transform: scaleX(0);
+        transform-origin: left center;
+      }
+    }
+  }
+
+  &__label {
+    font-family: $font-primary;
+    font-weight: $font-medium;
+    font-size: 1.0625rem;
+    line-height: 1.7647;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+  }
+
+  @include up(xxl) {
+    gap: 7rem;
+
+    &__label {
+      font-size: 1.125rem;
+    }
+  }
+
+  @include up(hd) {
+    gap: 7.5rem;
+
+    &__button {
+      gap: 0.625rem;
+
+      &::before {
+        width: 2.75rem;
+        height: 0.4375rem;
+      }
+    }
+
+    &__label {
+      font-size: 1.1875rem;
+    }
+  }
+
+  @include up(ultra) {
+    gap: 8.5rem;
+
+    &__button {
+      &::before {
+        width: 3rem;
+        height: 0.5rem;
+      }
+    }
+
+    &__label {
+      font-size: 1.25rem;
+    }
+  }
+
+  @include up(fullhd) {
+    gap: 10rem;
+
+    &__button {
+      gap: 0.75rem;
+
+      &::before {
+        width: 3.25rem;
+        height: 0.5625rem;
+      }
+    }
+
+    &__label {
+      font-size: 1.375rem;
+    }
+  }
+}
+
+.courses-panel {
+  width: min(100%, 46rem);
+  display: flex;
+  flex-direction: column;
+  gap: 5.3125rem;
+
+  @include down(lg) {
+    display: none;
+  }
+
+  &__category {
+    margin: 0;
+    font-family: $font-primary;
+    font-weight: $font-medium;
+    font-size: 3.4375rem;
+    line-height: 1;
+    text-transform: capitalize;
+    color: $text-primary;
+    transition:
+      opacity 0.35s ease,
+      transform 0.35s ease;
+
+    &--leaving {
+      opacity: 0;
+      transform: translateY(0.75rem);
+    }
+  }
+
+  @include up(xxl) {
+    width: min(100%, 50rem);
+    gap: 6rem;
+
+    &__category {
+      font-size: 3.875rem;
+    }
+  }
+
+  @include up(hd) {
+    width: min(100%, 54rem);
+    gap: 6.5rem;
+
+    &__category {
+      font-size: 4.25rem;
+    }
+  }
+
+  @include up(ultra) {
+    width: min(100%, 58rem);
+    gap: 7rem;
+
+    &__category {
+      font-size: 4.75rem;
+    }
+  }
+
+  @include up(fullhd) {
+    width: min(100%, 64rem);
+    gap: 8rem;
+
+    &__category {
+      font-size: 5.5rem;
+    }
+  }
+}
+
+.courses-list {
+  display: flex;
+  flex-direction: column;
+
+  &--leaving {
+    .course-item {
+      opacity: 0;
+      transform: translateY(0.75rem);
+      transition-delay: var(--course-delay);
+    }
+  }
+
+  &--entering {
+    .course-item {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  &--mobile {
+    gap: 0;
+  }
+}
+
+.course-item {
+  list-style: none;
+  border-bottom: 0.0625rem solid $text-secondary;
+  transition:
+    border-color 0.3s ease,
+    opacity 0.42s ease,
+    transform 0.42s ease;
+
+  &:first-child {
+    padding-top: 0;
+  }
+
+  &:not(:first-child) {
+    padding-top: 1.6875rem;
+  }
+
+  &__content {
+    display: flex;
+    align-items: center;
+    gap: 1.375rem;
+    padding-bottom: 1.5rem;
+
+    @include down(lg) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    font-family: $font-secondary;
+    font-weight: $font-light;
+    font-size: 1.375rem;
+    line-height: 1.3636;
+    color: $text-secondary;
+    transition: color 0.3s ease;
+
+    @include down(lg) {
+      color: $text-primary;
+      font-size: 1.125rem;
+    }
+  }
+
+  &__modalities {
+    margin: 0;
+    font-family: $font-primary;
+    font-weight: $font-medium;
+    font-size: 0.8125rem;
+    line-height: 0.9231;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: $text-secondary;
+    white-space: nowrap;
+    transition: color 0.3s ease;
+
+    @include down(lg) {
+      white-space: normal;
+      order: -1;
+      font-size: 0.625rem;
+      line-height: 100%;
+    }
+  }
+
+  &:hover {
+    border-color: $primary;
+    transform: translateY(-0.125rem);
+
+    .course-item__title,
+    .course-item__modalities {
+      color: $primary;
+    }
+  }
+
+  @include down(lg) {
+    &:hover {
+      border-color: $text-secondary;
+      transform: none;
+
+      .course-item__title,
+      .course-item__modalities {
+        color: inherit;
+      }
+    }
+  }
+
+  @include up(xxl) {
+    &:not(:first-child) {
+      padding-top: 1.875rem;
+    }
+
+    &__content {
+      gap: 1.5rem;
+      padding-bottom: 1.625rem;
+    }
+
+    &__title {
+      font-size: 1.5rem;
+    }
+
+    &__modalities {
+      font-size: 0.875rem;
+    }
+  }
+
+  @include up(hd) {
+    &:not(:first-child) {
+      padding-top: 2rem;
+    }
+
+    &__content {
+      gap: 1.625rem;
+      padding-bottom: 1.75rem;
+    }
+
+    &__title {
+      font-size: 1.625rem;
+    }
+
+    &__modalities {
+      font-size: 0.9375rem;
+    }
+  }
+
+  @include up(ultra) {
+    &:not(:first-child) {
+      padding-top: 2.125rem;
+    }
+
+    &__content {
+      gap: 1.75rem;
+      padding-bottom: 1.875rem;
+    }
+
+    &__title {
+      font-size: 1.75rem;
+    }
+
+    &__modalities {
+      font-size: 1rem;
+    }
+  }
+
+  @include up(fullhd) {
+    &:not(:first-child) {
+      padding-top: 2.375rem;
+    }
+
+    &__content {
+      gap: 2rem;
+      padding-bottom: 2rem;
+    }
+
+    &__title {
+      font-size: 2rem;
+    }
+
+    &__modalities {
+      font-size: 1.125rem;
+    }
+  }
+}
+
+.courses-accordion {
+  display: none;
+
+  @include down(lg) {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  &__item {
+    scroll-margin-top: 5rem;
+    padding-bottom: 1rem;
+  }
+
+  &__trigger {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    text-align: left;
+  }
+
+  &__title {
+    margin: 0;
+    font-family: $font-primary;
+    font-weight: $font-medium;
+    font-size: 2rem;
+    line-height: 1;
+    color: $text-primary;
+    text-transform: uppercase;
+
+    @include down(lg) {
+      font-size: 1.875rem;
+    }
+  }
+
+  &__icon {
+    flex-shrink: 0;
+    width: 3.75rem;
+    height: 3.75rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 0.0625rem solid $primary;
+    background: transparent;
+    color: $primary;
+    font-family: $font-primary;
+    font-weight: $font-medium;
+    line-height: 1;
+    transition:
+      background-color 0.3s ease,
+      color 0.3s ease,
+      border-color 0.3s ease,
+      transform 0.3s ease;
+
+    &--open {
+      background: $primary;
+      color: $bg-primary;
+      border-color: $primary;
+      font-size: 1.875rem;
+      transform: rotate(180deg) scale(1.02);
+    }
+
+    &--closed {
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+      -webkit-text-stroke: 1px $primary;
+      paint-order: stroke;
+      font-size: 2.3125rem;
+      transform: rotate(0deg) scale(1);
+    }
+  }
+
+  &__content {
+    padding-top: 1.5rem;
+    animation: coursesAccordionReveal 0.42s ease both;
+
+    .course-item {
+      animation: coursesItemReveal 0.4s ease both;
+    }
+
+    .course-item:nth-child(1) {
+      animation-delay: 0.04s;
+    }
+
+    .course-item:nth-child(2) {
+      animation-delay: 0.08s;
+    }
+
+    .course-item:nth-child(3) {
+      animation-delay: 0.12s;
+    }
+
+    .course-item:nth-child(4) {
+      animation-delay: 0.16s;
+    }
+
+    .course-item:nth-child(5) {
+      animation-delay: 0.2s;
+    }
+
+    .course-item:nth-child(6) {
+      animation-delay: 0.24s;
+    }
+  }
+}
+
+@keyframes coursesAccordionReveal {
+  from {
+    opacity: 0;
+    transform: translateY(-0.5rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes coursesItemReveal {
+  from {
+    opacity: 0;
+    transform: translateY(0.625rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
