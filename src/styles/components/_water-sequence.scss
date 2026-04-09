@@ -1,0 +1,15 @@
+.water-sequence {
+  position: relative;
+  width: 100vw;
+  min-height: 120vh;
+  margin-left: calc(50% - 50vw);
+  overflow: hidden;
+
+  &__image {
+    display: block;
+    width: 100vw;
+    height: auto;
+    user-select: none;
+    pointer-events: none;
+  }
+}
