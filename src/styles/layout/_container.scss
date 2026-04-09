@@ -10,20 +10,20 @@
   }
 
   @include up(md) {
-    max-width: 720px;
+    max-width: 45rem;
   }
 
   @include up(lg) {
-    max-width: 1024px;
+    max-width: 64rem;
   }
 
   @include up(xl) {
-    max-width: 1280px;
+    max-width: 80rem;
     padding-inline: 3rem;
   }
 
   @include up(xxl) {
-    max-width: 1440px;
+    max-width: 90rem;
     padding-inline: 4rem;
   }
 
